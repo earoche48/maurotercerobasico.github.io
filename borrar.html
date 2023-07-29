@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Borrar Datos</title>
+</head>
+<style>
+ body {
+              font-family: Arial, sans-serif;
+              margin: 20px;
+              background-color: #3374ff;
+          }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button, button[type="button"] {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #FFFFFF;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover, button[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        h1 {
+            font-size: 24px;
+            margin-left: 10px;
+        }
+
+        img {
+            height: 64px;
+            width: 64px;
+            vertical-align: middle;
+        }
+</style>
+<body>
+
+  <h1><img src="Logo.png" alt="Logo"> Colegio Cristiano Peniel</h1>
+  <button id="clearLocalStorage">Borrar LocalStorage</button>
+ <a href="index.html"><button>Ir a formulario</button></a> 
+  <script>
+    document.getElementById("clearLocalStorage").addEventListener("click", function() {
+      // Esta función ejecuta localStorage.clear() para borrar todos los datos almacenados en el LocalStorage.
+      localStorage.clear();
+      alert("LocalStorage limpiado correctamente.");
+    });
+
+
+
+
+  </script>
+</body>
+</html>

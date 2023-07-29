@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Selección Múltiple</title>
+</head>
+<body>
+    <h2>Formulario de Selección Múltiple</h2>
+    <form id="formularioSeleccion">
+        <p>Incluye sólo información y datos, todo lo relativo a la información a transmitir.</p>
+        <label><input type="radio" name="pregunta1" value="HTML">HTML</label>
+        <label><input type="radio" name="pregunta1" value="CSS">CSS</label>
+        <label><input type="radio" name="pregunta1" value="C++">C++</label><br><br>
+
+        <p>Incluye sólo los aspectos relacionados con el estilo (diseño, colores, formas, etc...).</p>
+        <label><input type="radio" name="pregunta2" value="HTML">HTML</label>
+        <label><input type="radio" name="pregunta2" value="CSS">CSS</label>
+        <label><input type="radio" name="pregunta2" value="C++">C++</label><br><br>
+
+        <p>¿Qué tipo de buscador se centra en una materia muy concreta?</p>
+        <label><input type="radio" name="pregunta3" value="Buscador tematico">Buscador tematico</label>
+        <label><input type="radio" name="pregunta3" value="Buscador generalista">Buscador generalista</label>
+        <label><input type="radio" name="pregunta3" value="Multi buscador">Multi buscador</label><br><br>
+
+        <p>¿Qué tipo de buscador nos ofrece la posibilidad de ejecutar búsquedas simples o combinadas mediante el uso de operadores booleanos?</p>
+        <label><input type="radio" name="pregunta4" value="Buscador tematico">Buscador tematico</label>
+        <label><input type="radio" name="pregunta4" value="Buscador generalista">Buscador generalista</label>
+        <label><input type="radio" name="pregunta4" value="Multi buscador">Multi buscador</label><br><br>
+
+        <p>¿Qué es un buscador que permite realizar búsquedas en múltiples webs al mismo tiempo?</p>
+        <label><input type="radio" name="pregunta5" value="Buscador tematico">Buscador tematico</label>
+        <label><input type="radio" name="pregunta5" value="Buscador generalista">Buscador generalista</label>
+        <label><input type="radio" name="pregunta5" value="Multi buscador">Multi buscador</label><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+ 
+    <script>
+ // Función para bloquear el formulario y redirigir a la página de contraseña si no hay una contraseña válida en localStorage.
+function bloquearFormulario() {
+    const passwordForm = document.getElementById('passwordForm');
+    const passwordInput = document.getElementById('password');
+    const storedPassword = localStorage.getItem('password');
+
+    if (!storedPassword || storedPassword !== passwordInput.value) {
+        // Si no hay contraseña válida en localStorage o no coincide con lo ingresado por el usuario, bloqueamos el formulario y redirigimos a contrasena.html.
+        passwordForm.reset();
+        passwordInput.setAttribute('disabled', 'true');
+        window.location.href = 'contrasena.html';
+    } else {
+        // Si la contraseña es válida, almacenamos la contraseña en localStorage y permitimos que el usuario continúe.
+        localStorage.setItem('password', passwordInput.value);
+    }
+}
+
+// Agregar el evento beforeunload para detectar cuando el usuario intente salir del formulario o cambiar de página.
+window.addEventListener('beforeunload', bloquearFormulario);
+
+    </script>
+</body>
+</html>

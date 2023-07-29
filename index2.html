@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulario de Alumnos</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+    
+            #menu {
+                background-color: #007BFF;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center; /* Centra los elementos horizontalmente */
+            }
+    
+            #menu img {
+                height: 60px;
+                margin-right: 10px;
+            }
+    
+            #menu h1 {
+                color: #fff;
+                margin: 0;
+                padding: 0;
+                font-size: 24px;
+            }
+    
+            form {
+                max-width: 600px;
+                margin: 20px auto;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+    
+            label {
+                font-weight: bold;
+            }
+    
+            textarea {
+                width: 100%;
+                resize: vertical;
+            }
+    
+            input[type="submit"] {
+                display: block;
+                margin-top: 20px;
+                background-color: #007BFF;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+    
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="menu">
+            <img src="Logo.png" alt="Logo">
+            <h1>Colegio Cristiano Peniel</h1>
+        </div>
+
+    <form id="alumnoForm">
+        <label for="pregunta1">Nombre completo</label><br>
+        <textarea id="pregunta18" rows="4" cols="50" required></textarea><br><br>
+<label for="pregunta1">Grado</label><br>
+        <textarea id="pregunta16" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="pregunta1">¿Qué significa las siglas CSS?</label><br>
+        <textarea id="pregunta18" rows="4" cols="50" required></textarea><br><br>
+        
+        
+        <label for="pregunta1">Escriba 3 lenguajes de programación</label><br>
+        <textarea id="pregunta18" rows="4" cols="50" required></textarea><br><br>
+
+        
+       
+
+        <label for="pregunta4">Defina con sus propias palabras que es Front-End
+</label><br>
+        <textarea id="pregunta4" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="pregunta5">Escriba con sus propias palabras una definición de qué es un buscador.</label><br>
+        <textarea id="pregunta5" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="pregunta6">¿Cuáles son los lenguajes de programación necesarios para quienes desarrollan el Front-End?</label><br>
+        <textarea id="pregunta6" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script>
+        document.getElementById("alumnoForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            if (validarFormulario()) {
+                event.target.submit();
+            }
+        });
+
+        function validarFormulario() {
+            var pregunta1 = document.getElementById("pregunta1").value;
+            var pregunta2 = document.getElementById("pregunta2").value;
+            var pregunta3 = document.getElementById("pregunta3").value;
+            var pregunta4 = document.getElementById("pregunta4").value;
+            var pregunta5 = document.getElementById("pregunta5").value;
+            var pregunta6 = document.getElementById("pregunta6").value;
+
+            if (pregunta1.trim() === "" || pregunta2.trim() === "" || pregunta3.trim() === "" || pregunta4.trim() === "" || pregunta5.trim() === "" || pregunta6.trim() === "") {
+                alert("Por favor, completa todos los campos obligatorios.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cuestionario de Cifras Significativas y Vectores</title>
+</head>
+<body>
+    <h1>Cuestionario de Cifras Significativas y Vectores</h1>
+    <form id="cuestionarioForm">
+        <p>1. El resultado aritmético y físico de multiplicar las siguientes cifras significativas 13.23 por 3.9 es?</p>
+        <input type="radio" name="p1" value="A"> A) 51.597 y 51<br>
+        <input type="radio" name="p1" value="B"> B) 51.5974 y 52<br>
+        <input type="radio" name="p1" value="C"> C) 17.21 y 17<br>
+        <input type="radio" name="p1" value="D"> D) NINGUNA<br>
+
+        <p>2. ¿El resultado aritmético y físico de sumar las siguientes cifras significativas 1.3 más 23.95?</p>
+        <input type="radio" name="p2" value="A"> A) 24.985 y 24.99<br>
+        <input type="radio" name="p2" value="B"> B) 25.25 y 25.3<br>
+        <input type="radio" name="p2" value="C"> C) 17 y 16<br>
+        <input type="radio" name="p2" value="D"> D) NINGUNA<br>
+
+        <p>3. ¿Cuál de las siguientes cifras significativas tiene 4 cifras significativas?</p>
+        <input type="radio" name="p3" value="A"> A) 0.234<br>
+        <input type="radio" name="p3" value="B"> B) 0.012<br>
+        <input type="radio" name="p3" value="C"> C) 0.007840<br>
+        <input type="radio" name="p3" value="D"> D) NINGUNA<br>
+
+        <p>4. ¿Cuál de las siguientes cifras significativas tiene un número de incertidumbre que le otorgue una unidad al que le antecede?</p>
+        <input type="radio" name="p4" value="A"> A) NINGUNA<br>
+        <input type="radio" name="p4" value="B"> B) 0.004573<br>
+        <input type="radio" name="p4" value="C"> C) 2.3674<br>
+        <input type="radio" name="p4" value="D"> D) 2.95478<br>
+
+        <p>5. ¿El resultado aritmético y físico de multiplicar las siguientes cifras significativas 453.5 por 3.6 es?</p>
+        <input type="radio" name="p5" value="A"> A) 1632.6 y 1.6x10^2<br>
+        <input type="radio" name="p5" value="B"> B) 1633 y 1.6<br>
+        <input type="radio" name="p5" value="C"> C) 1632.6 y 1.6x10^3<br>
+        <input type="radio" name="p5" value="D"> D) NINGUNA<br>
+
+        <p>6. ¿Cuál es la resultante y dirección de operar la suma de los vectores A= 70 Nt y B= 50 Nt. Que al interactuar forma ángulo de 90° por el método analítico?</p>
+        <input type="radio" name="p6" value="A"> A) 87.12 Nt 32°35'<br>
+        <input type="radio" name="p6" value="B"> B) 86.02 Nt 35°32'<br>
+        <input type="radio" name="p6" value="C"> C) 85.02 Nt 34°35'<br>
+        <input type="radio" name="p6" value="D"> D) NINGUNA<br>
+
+        <p>7. ¿Cuál es la resultante y dirección de operar la suma de los vectores A= 60 Nt y B= 40 Nt. Que al interactuar forma ángulo de 90° por el método analítico?</p>
+        <input type="radio" name="p7" value="A"> A) 72.11 Nt 33°41'<br>
+        <input type="radio" name="p7" value="B"> B) 11.72 Nt 33°69'<br>
+        <input type="radio" name="p7" value="C"> C) 72. Nt 34°4'<br>
+        <input type="radio" name="p7" value="D"> D) NINGUNA<br>
+
+        <p>8. ¿Cuál es la resultante y dirección de operar la suma de los vectores A= 160 Nt y B= 140 Nt. Que al interactuar forma ángulo de 90° por el método analítico?</p>
+        <input type="radio" name="p8" value="A"> A) 212.60 Nt 60°80'<br>
+        <input type="radio" name="p8" value="B"> B) 223.60 Nt 30°80'<br>
+        <input type="radio" name="p8" value="C"> C) 147.21 Nt 12°5'<br>
+        <input type="radio" name="p8" value="D"> D) NINGUNA<br>
+
+        <br>
+        <input type="button" value="Enviar respuestas" onclick="calcularResultados()">
+    </form>
+
+    <script>
+        function calcularResultados() {
+            const respuestas = {
+                p1: "B",
+                p2: "A",
+                p3: "C",
+                p4: "B",
+                p5: "C",
+                p6: "A",
+                p7: "A",
+                p8: "A"
+            };
+
+            let puntos = 0;
+
+            for (const pregunta in respuestas) {
+                const seleccion = document.querySelector(`input[name=${pregunta}]:checked`);
+                if (seleccion !== null) {
+                    const respuestaSeleccionada = seleccion.value;
+                    if (respuestaSeleccionada === respuestas[pregunta]) {
+                        puntos+= 3.5;
+                    }
+                }
+            }
+
+            alert(`Has obtenido ${puntos} puntos de 28.`);
+            window.location.href = "contraseña_2.html";
+
+        }
+        // Verificar si el examen ya ha sido completado previamente y redirigir a contraseña_2.html
+if (localStorage.getItem("formCompleted")) {
+showFinalScore();
+}
+// Verificar si el examen ya se ha completado
+const isExamCompleted = localStorage.getItem('formCompleted') === 'true';
+const isFormLocked = localStorage.getItem('formAbandoned') === 'true';
+// Bloquear la página si el examen no se ha completado
+if (!isExamCompleted && isFormLocked) {
+alert('Esta página se bloque debeido a que usted se salio del formulario, conslute al docente si desea continuar.');
+window.location.href = 'contrasena.html';
+}
+
+// Redirigir a contraseña.html si se abandona el examen o se cambia de página
+window.addEventListener("beforeunload", (event) => {
+                if (!examCompleted) {
+                    localStorage.setItem("formAbandoned", true);
+                    event.preventDefault();
+                    
+                }
+            });
+
+             // Detectar cambios de visibilidad en la página
+             document.addEventListener("visibilitychange", () => {
+                if (document.visibilityState === "hidden") {
+                    examCompleted = true;
+                    localStorage.setItem("formAbandoned", true);
+                    window.location.href = "contrasena.html";
+                }
+            });
+    </script>
+</body>
+</html>
